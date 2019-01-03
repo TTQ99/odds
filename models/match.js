@@ -8,7 +8,8 @@ let match = new Schema({
   hscore: { type: String },
   ascore: { type: String },
   date: { type: Date },
-  flag: { type: Boolean, default: false }
+  flag: { type: Boolean, default: false },
+  matchname: { type: String }
 })
 
 module.exports = mongoose.model('Match', match)

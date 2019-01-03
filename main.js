@@ -16,6 +16,3 @@ MongoClient.connect(
       })
   }
 )
-// github edit
-// 123123
-// github edit2

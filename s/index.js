@@ -1,5 +1,8 @@
 let Day = require('dayjs')
 let request = require('request')
+let Match = require('../models/match')
+console.log(Match)
+
 a = Day('2018-01-01').valueOf()
 a += 86400000
 console.log(a)
@@ -44,6 +47,7 @@ function handle() {
         flag: false
       }
       console.log(info)
+      insert(info)
     }
   }
 }
@@ -51,3 +55,15 @@ function handle() {
 let d = require('./index_big')
 
 handle()
+
+function insert(data) {
+  let match = new Match(data)
+
+  match.save((err, res) => {
+    if (err) {
+      console.log(`error:${err}`)
+    } else {
+      console.log(`res:${res}`)
+    }
+  })
+}
