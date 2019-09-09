@@ -1647,3 +1647,20 @@ arr[107] = [
     '1219,拉各斯杯,2,0,2015,2013,2012,2011'
   ]
 ]
+let arr2 = []
+arr.forEach(item => {
+  arr2.push(...item[4])
+})
+console.log(arr2)
+let arr3 = []
+arr2.forEach(item => {
+  arr3.push({
+    id: item.split(',')[0],
+    name: item.split(',')[1],
+    class1: item.split(',')[2],
+    class2: item.split(',')[3]
+  })
+})
+const fs = require('fs')
+console.log(JSON.stringify(arr3))
+fs.writeFile(`./match/class.js`, JSON.stringify(arr3))
