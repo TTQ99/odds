@@ -4,7 +4,7 @@ const fs = require('fs')
 const dayjs = require('dayjs')
 const path = require('path')
 
-let time = dayjs('20190101')
+let time = dayjs('201901011')
 let day = time.format('YYYYMMDD')
 console.log(day)
 
@@ -13,7 +13,8 @@ function resolve(dir) {
 }
 
 function downloadMatch(date) {
-  const url = `http://bf.win007.com/football/Over_${date}.htm`
+  // const url = `http://bf.win007.com/football/Over_${date}.htm`
+  const url = 'http://op1.win007.com/oddslist/1656480.htm'
 
   const options = {
     url: url
@@ -28,7 +29,7 @@ function downloadMatch(date) {
       // 转码
       var text = iconv.decode(buf, 'gbk')
       // console.log(text)
-      fs.writeFileSync(resolve(`html/match/`) + `${date}.html`, text)
+      fs.writeFileSync(resolve(`html/`) + `${date}.html`, text)
       time = time.add(1, 'day')
       day = time.format('YYYYMMDD')
       console.log(day)
