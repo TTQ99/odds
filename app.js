@@ -18,29 +18,31 @@ console.log(arr.length)
 const express = require('express')
 const app = express()
 app.get('/', (req, res) => {
-  var ou = 1.84
-  var od = 1.86
   var list = []
   var obj = {
+    ou: 1.84,
+    od: 1.9,
     win: 0,
+    win1: 0,
     lose: 0,
     amout: 100
   }
   var win = []
   arr.forEach(item => {
-    if (item.b1 > ou && item.b1 < od) {
-      item.flag = item.score.split('-')[0] - item.score.split('-')[1] > 0
-      list.push(item)
-      if (item.flag) {
-        obj.win += item.b1 * obj.amout - 100
-      } else {
-        obj.lose -= 100
-      }
-    } else if (item.b3 > ou && item.b3 < od) {
+    if (item.b1 > obj.ou && item.b1 < obj.od) {
+      // item.flag = item.score.split('-')[0] - item.score.split('-')[1] > 0
+      // list.push(item)
+      // if (item.flag) {
+      //   obj.win += item.b1 * obj.amout - 100
+      // } else {
+      //   obj.lose -= 100
+      // }
+    } else if (item.b3 > obj.ou && item.b3 < obj.od) {
       item.flag = item.score.split('-')[1] - item.score.split('-')[0] < 0
       list.push(item)
       if (item.flag) {
         obj.win += item.b3 * obj.amout - 100
+        obj.win1 += 100
       } else {
         obj.lose -= 100
       }
