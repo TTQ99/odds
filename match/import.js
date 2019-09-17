@@ -205,3 +205,5 @@ let arr2 = [
   '1061',
   '195'
 ]
+
+module.exports = { arr2 }
